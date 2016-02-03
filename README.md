@@ -352,7 +352,7 @@ Congratulations! You've sucessfully built a real-time multiplayer chess game usi
 2. We built a simple Node.js and Express server that hosts the chess game JavaScript
 3. We added Socket.io to our Node server to send and handle messages from the clients, first with a simple buton
 4. We sent Socket.io messages to the server when the player completes her move, and broadcast it to the clients from the server.
-5. We published the whole game online so we can start crushing our in-laws in realtime.
+5. We published the whole game online.
 
 ## Ideas for what's next
 * Create a menu and a lobby to find opponents
