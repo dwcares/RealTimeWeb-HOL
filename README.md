@@ -27,9 +27,12 @@ In order to complete the lab, you need the following pre-requisites
 
 ## Prerequisite online accounts
 In order to complete the lab, you need the following prerequisite online accounts
-* [Microsoft account](http://accounts.microsoft.com) – Nseeded to use Microsoft Azure
+* [Microsoft account](http://accounts.microsoft.com) – Needed to use Microsoft Azure
 * [Microsoft Azure Subscription](http://azure.com) – A free trial is sufficient
 * [GitHub](http://github.com) – Required to deploy code to Azure
+
+## Completed steps
+* 
 
 # Exercise 1: Create a node app and run it locally
  
@@ -53,7 +56,7 @@ We will create a basic Node.js web app that serves up some HTML content using th
  ````
  
 4. This will walk through a tutorial, keep all the defaults by repeatedly hitting enter.
-5. List the folders contents contents and open the package file
+5. List the folders contents and open the package file
 
  ````
  > dir
@@ -253,7 +256,7 @@ In our basic Socket.io server above, we just sent a message to the client every 
     ````
     
 ## Handle moves you get from the server
-Now that the server is broadcasting the move to the opponent all we need to do is handle that on the client to actually display the move. We just do that with another socket.on() calback, this time on the client. I think it’s super cool that Socket.io has the same programming model whether you’re on the client or server.
+Now that the server is broadcasting the move to the opponent all we need to do is handle that on the client to actually display the move. We just do that with another socket.on() callback, this time on the client. I think it’s super cool that Socket.io has the same programming model whether you’re on the client or server.
 
 1. Update your **/public/default.js** client to handle a move with a socket.on handler.
     
@@ -292,7 +295,7 @@ Fork a project from GitHub
 
 3.	Specify the details for your website. Note: The App Service Name corresponds to the beginning part of your url.
 
-4.	Once the page is created, you need to deploy. Thankfully, Azure has a “Contiuous Deployment” option.  This will take the code on github and automatically deploy it when there are any changes.
+4.	Once the page is created, you need to deploy. Thankfully, Azure has a "Continuous Deployment" option.  This will take the code on github and automatically deploy it when there are any changes.
 
 5.	Click settings in the header, and choose, Continuous Deployment from the list. Next, choose GitHub as the place to deploy from.
 
