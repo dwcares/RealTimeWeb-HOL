@@ -125,6 +125,8 @@ We will create a basic Node.js web app that serves up some HTML content using th
 
     ![Hello world web](Images/9.png)
 
+*You can find the completed code for this step in the **/1A - Basic Web** folder.*
+
 ## Add the chess game
 
 ### What we need
@@ -201,6 +203,8 @@ We will create a basic Node.js web app that serves up some HTML content using th
 
     ![First chess game](Images/10.png)
 
+*You can find the completed code for this step in the **/1B - Chess Game** folder.*
+
 # Exercise 2: Make it real-time with Socket.io
 
 ## Scenario
@@ -255,6 +259,8 @@ Now when you run it, observe in the console that your message made it across whe
 
    ![Hello world socket.io](Images/11.png)
 
+*You can find the completed code for this step in the **/2A - Simple Socket.io** folder.*
+
 ## Connect our game to Socket.io
 In our basic Socket.io server above, we just sent a message to the client every time someone clicked the button in their browser. For the chess game, all we need to do is send the chess move data to the Socket.io server every time there’s a move and send it to the other player. We’re going to use the same socket.emit() function to send a message, and the socket.on() handlers to respond to them.
 
@@ -280,7 +286,9 @@ In our basic Socket.io server above, we just sent a message to the client every 
         });
     });
     ````
-    
+
+*You can find the completed code for this step in the **/2B - Connect Game to Socket.io** folder.*
+
 ## Handle moves you get from the server
 Now that the server is broadcasting the move to the opponent all we need to do is handle that on the client to actually display the move. We just do that with another socket.on() callback, this time on the client. I think it’s super cool that Socket.io has the same programming model whether you’re on the client or server.
 
@@ -295,6 +303,8 @@ Now that the server is broadcasting the move to the opponent all we need to do i
     ````
 
 2. Now run your server and try out your game. When you make a move on when browser you should see it change on the other tab.
+
+*You can find the completed code for this step in the **/2C - Handle moves from Server** folder.*
 
 # Exercise 3: Publish it to Azure
 
