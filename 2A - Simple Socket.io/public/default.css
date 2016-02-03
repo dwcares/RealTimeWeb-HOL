@@ -1,0 +1,10 @@
+body {
+	overflow-y: auto;
+	display: flex;
+	align-items: center;
+    justify-content: center;
+}
+
+#gameBoard {
+    width: 400px;
+}
