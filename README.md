@@ -1,11 +1,8 @@
 # Hands on: Real-time Chess
 ### with WebSockets and Socket.io
-![Tony Fischer Chess in Washington Square Park (Flickr)](https://c2.staticflickr.com/4/3047/2566070837_8ed5848d40_z.jpg?zz=1)
+[![Watch intro video from David Washington](Images/0.png)](https://channel9.msdn.com/Shows/Lets-dev-this/LDT1605)
 
 In this hands on lab, we'll make a multiplayer chess game that where your moves are shown on your opponent's screen in real-time. Instantly. Checkmate.
-
-<iframe src="https://channel9.msdn.com/Shows/Lets-dev-this/LDT1605/player" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-
 
 # Lab Overview
  
@@ -31,8 +28,12 @@ In order to complete the lab, you need the following prerequisite online account
 * [Microsoft Azure Subscription](http://azure.com) – A free trial is sufficient
 * [GitHub](http://github.com) – Required to deploy code to Azure
 
-## Completed steps
-* 
+## A note on using completed steps
+This lab contains the code for each of the completed steps below. Feel free to look at or use the code from the steps if you get lost or need help. If you replace your code from one of the steps, or skip a few steps, you'll need to install the Node package dependncies for that step. This step is not required if the are following along with the below steps
+
+ ````
+  > npm install
+ ````
 
 # Exercise 1: Create a node app and run it locally
  
@@ -42,6 +43,9 @@ We will create a basic Node.js web app that serves up some HTML content using th
 ## Create your project folder
 
 1. Open the **Node.js command prompt** from the task bar or by searching for it in Start.
+
+    ![Node command propt](Images/1.png)
+
 2. Make a new folder named **chess** that will contain our source code and navigate to it
 
  ````
@@ -56,19 +60,25 @@ We will create a basic Node.js web app that serves up some HTML content using th
  ````
  
 4. This will walk through a tutorial, keep all the defaults by repeatedly hitting enter.
+
+   ![npm init](Images/2.png)
+
 5. List the folders contents and open the package file
 
- ````
- > dir
- ````
+     ````
+      > dir
+      ````
+6. Open the current folder in Visual Studio Code by typing **code .**
  
- 6. Open the current folder in Visual Studio Code by typing **code .**
- 
- 7. Observe your project metadata displayed in Visual Studio Code by clicking on the **project.json** file.
+7. Observe your project metadata displayed in Visual Studio Code by clicking on the **project.json** file.
+
+    ![package.json in VSCode](Images/3.png)
 
 ## Create a simple web server
 
 1. Click on the new file button and create a new file named **index.js**
+
+    ![New file button](Images/4.png)
 
 2. In your **index.js** file paste in the following code. This is the code for your web server.
 
@@ -90,6 +100,8 @@ We will create a basic Node.js web app that serves up some HTML content using th
 
 3. Create a new folder called **public** and create another file called **default.html** in the same folder and type hello world into it. Go ahead and save it.
 
+    ![New file and folder](Images/5.png)
+
 4. Switch back to the Node.js command prompt and type **npm install express --save**. This will add the express web framework to your node app so you can host web content. 
 
     <sub>Note: The **--save** parameter adds a package dependency automatically for you in the **package.json** file.</sub>
@@ -97,17 +109,26 @@ We will create a basic Node.js web app that serves up some HTML content using th
     ```` 
     > npm install express --save
     ````
+    
+    ![npm install express](Images/6.png)
      
 5. Switch back to Visual Studio Code, click the Debug button on the left and hit the play button to start your project. 
 
+    ![Debug button](Images/7.png)
+
 6. You can see in the Debug Console that the “listening on *: 3000” console message was printed out so we know our code is working. Let’s see if it’s hosting the page.
+
+    ![Debug console](Images/8.png)
+
 7. Open your browser and navigate to **http://localhost:3000** and you’ll see your webpage 
+
+    ![Hello world web](Images/9.png)
 
 ## Add the chess game
 
 ### What we need
- 1.	Chessboard.js – This is a full interactive touch ready chessboard that let’s you programmatically place chess pieces, respond to player movements through event callbacks, and customize piece theme. This is the UI and visual behavior.
- 2.	Chess.js – This is the chess logic. It will know if something is a valid chess move and maintain the game logic and state. What’s cool is that it’s compatible with Chessboard.js by using a standard FEN notation for board layout and game moves.
+ 1.	[Chessboard.js](http://www.chessboardjs.com/) – This is a full interactive touch ready chessboard that let’s you programmatically place chess pieces, respond to player movements through event callbacks, and customize piece theme. This is the UI and visual behavior.
+ 2.	[Chess.js](https://github.com/jhlywa/chess.js/) – This is the chess logic. It will know if something is a valid chess move and maintain the game logic and state. What’s cool is that it’s compatible with Chessboard.js by using a standard FEN notation for board layout and game moves.
 
 ### Get started
 1. Download the **__LAB RESOURCES** folder from this lab repo and copy it's contents into your **/public/** folder.
@@ -177,6 +198,8 @@ We will create a basic Node.js web app that serves up some HTML content using th
    ```` 
 5. Finally, we need to go run the full game that we created. Click the play button to start debugging the Chess game. You’ll see that it’s running!
 
+    ![First chess game](Images/10.png)
+
 # Exercise 2: Make it real-time with Socket.io
 
 ## Scenario
@@ -228,6 +251,8 @@ Respond to a simple Socket.io message
     ```` 
 
 Now when you run it, observe in the console that your message made it across when you click on the page! 
+
+   ![Hello world socket.io](Images/11.png)
 
 ## Connect our game to Socket.io
 In our basic Socket.io server above, we just sent a message to the client every time someone clicked the button in their browser. For the chess game, all we need to do is send the chess move data to the Socket.io server every time there’s a move and send it to the other player. We’re going to use the same socket.emit() function to send a message, and the socket.on() handlers to respond to them.
@@ -283,6 +308,7 @@ Fork a project from GitHub
 ### Get Started
 1.	Go to http://github.com/dwcares/realtimeweb-hol and click the fork repository button. 
 
+    ![Fork it](Images/12.png)
     <sub>Note: You need to be logged in with a GitHub account to complete this step.</sub>
  
 2.	Forking the repository, makes a copy for you to play with. It essentially puts it in your sandbox to play with. We’re going to deploy your copy of the repository directly to Azure next.
@@ -293,6 +319,8 @@ Fork a project from GitHub
 
 2.	When you are at the Azure Portal, click the new button then click the Web + Mobile category and Web App button.
 
+    ![Azure portal](Images/13.png)
+
 3.	Specify the details for your website. Note: The App Service Name corresponds to the beginning part of your url.
 
 4.	Once the page is created, you need to deploy. Thankfully, Azure has a "Continuous Deployment" option.  This will take the code on github and automatically deploy it when there are any changes.
@@ -302,3 +330,22 @@ Fork a project from GitHub
 6.	You will need to authorize your account by logging in with your GitHub credentials. Follow the onscreen instructions.
 
 7.	Choose the repository that we forked for this lab. 
+
+    ![Continuous deploy](Images/14.png)
+    
+# Complete
+Congratulations! You've sucessfully built a real-time multiplayer chess game using Node.js, Socket.io hosted on Azure. 
+
+## Quick recap
+1. We built a simple JavaScript chess game with Chess.js and Chessboard.js
+2. We built a simple Node.js and Express server that hosts the chess game JavaScript
+3. We added Socket.io to our Node server to send and handle messages from the clients, first with a simple buton
+4. We sent Socket.io messages to the server when the player completes her move, and broadcast it to the clients from the server.
+5. We published the whole game online so we can start crushing our in-laws in realtime.
+
+## Ideas for what's next
+* Create a menu and a lobby to find opponents
+* Wrap the UI in a better framework like Ionic
+* Ship on mobile platforms using Cordova
+* Consider building a 3D interface in Unity
+* Use REDIS Cache for variables so the server can scale beyond one instance
