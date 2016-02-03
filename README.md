@@ -1,15 +1,15 @@
- # Hands on: Real-time Chess
- ### with WebSockets and Socket.io
- ![Tony Fischer Chess in Washington Square Park (Flickr)](https://c2.staticflickr.com/4/3047/2566070837_8ed5848d40_z.jpg?zz=1)
+# Hands on: Real-time Chess
+### with WebSockets and Socket.io
+![Tony Fischer Chess in Washington Square Park (Flickr)](https://c2.staticflickr.com/4/3047/2566070837_8ed5848d40_z.jpg?zz=1)
 
 In this hands on lab, we'll make a multiplayer chess game that where your moves are shown on your opponent's screen in real-time. Instantly. Checkmate.
 
 <iframe src="https://channel9.msdn.com/Shows/Lets-dev-this/LDT1605/player" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 
 
- # Lab Overview
+# Lab Overview
  
- ## Learning Objectives
+## Learning Objectives
 After completing the exercises in this lab, you will be able to:
 * Create a Node.js web app, run, and debug it locally
 * Create a basic a Socket.io server
@@ -17,7 +17,7 @@ After completing the exercises in this lab, you will be able to:
 
 Estimated time to complete this lab: 60 minutes
 
- ## Prerequisite software
+## Prerequisite software
 In order to complete the lab, you need the following pre-requisites
 
 * Windows 10, Mac OS 10 Yosemite, or Linux
@@ -25,7 +25,7 @@ In order to complete the lab, you need the following pre-requisites
 * [Node.js](https://nodejs.org)
 
 
- ## Prerequisite online accounts
+## Prerequisite online accounts
 In order to complete the lab, you need the following prerequisite online accounts
 * [Microsoft account](http://accounts.microsoft.com) – Nseeded to use Microsoft Azure
 * [Microsoft Azure Subscription](http://azure.com) – A free trial is sufficient
