@@ -15,7 +15,7 @@ After completing the exercises in this lab, you will be able to:
 * Create a basic a Socket.io server
 * Publish your server to Azure from GitHub
 
-Estimated time to complete this lab: 60 minutes
+Estimated time to complete this lab: **60 minutes**
 
 ## Prerequisite software
 In order to complete the lab, you need the following pre-requisites
@@ -38,8 +38,8 @@ We will create a basic Node.js web app that serves up some HTML content using th
 
 ## Create your project folder
 
-1. Open the ‘Node.js command prompt’ from the task bar or by searching for it in Start.
-2. Make a new folder named ‘chess’ that will contain our source code and navigate to it
+1. Open the **Node.js command prompt** from the task bar or by searching for it in Start.
+2. Make a new folder named **chess** that will contain our source code and navigate to it
 
  ````
   > mkdir chess
@@ -53,20 +53,21 @@ We will create a basic Node.js web app that serves up some HTML content using th
  ````
  
 4. This will walk through a tutorial, keep all the defaults by repeatedly hitting enter.
-5.	List the folders contents contents and open the package file
+5. List the folders contents contents and open the package file
 
  ````
  > dir
  ````
-
-<sub>Note: To open the current folder in Visual Studio Code type “code <filename>” from the command prompt to open a file or folder.</sub>
+ 
+ 6. Open the current folder in Visual Studio Code by typing **code .**
+ 
+ 7. Observe your project metadata displayed in Visual Studio Code by clicking on the **project.json** file.
 
 ## Create a simple web server
-1. Observe your project metadata displayed in Visual Studio Code.
 
-2. Click on the new file button and create a new file named **'index.js'**
+1. Click on the new file button and create a new file named **index.js**
 
-3. In your **'index.js'** file paste in the following code. This is the code for your web server.
+2. In your **index.js** file paste in the following code. This is the code for your web server.
 
     ````javascript
     var express = require('express');
@@ -84,8 +85,9 @@ We will create a basic Node.js web app that serves up some HTML content using th
     });
     ```` 
 
-4. Create a new folder called **'public'** and create another file called **'default.html'** in the same folder and type hello world into it. Go ahead and save it.
-5. Switch back to the Node.js command prompt and type **'npm install express --save'**. This will add the express web framework to your node app so you can host web content. 
+3. Create a new folder called **public** and create another file called **default.html** in the same folder and type hello world into it. Go ahead and save it.
+
+4. Switch back to the Node.js command prompt and type **npm install express --save**. This will add the express web framework to your node app so you can host web content. 
 
     <sub>Note: The **--save** parameter adds a package dependency automatically for you in the **package.json** file.</sub>
     
@@ -93,10 +95,10 @@ We will create a basic Node.js web app that serves up some HTML content using th
     > npm install express --save
     ````
      
-6. Switch back to Visual Studio Code, click the Debug button on the left and hit the play button to start your project. 
+5. Switch back to Visual Studio Code, click the Debug button on the left and hit the play button to start your project. 
 
-7. You can see in the Debug Console that the “listening on *: 3000” console message was printed out so we know our code is working. Let’s see if it’s hosting the page.
-8. Open your browser and navigate to **'http://localhost:3000'** and you’ll see your webpage 
+6. You can see in the Debug Console that the “listening on *: 3000” console message was printed out so we know our code is working. Let’s see if it’s hosting the page.
+7. Open your browser and navigate to **http://localhost:3000** and you’ll see your webpage 
 
 ## Add the chess game
 
@@ -109,7 +111,7 @@ We will create a basic Node.js web app that serves up some HTML content using th
     
     <sub>Note: The __LAB RESOURCES folder contains the chess libraries, images for the chess game, and Jquery. Even though we don't use JQuery for our game, the Chessboard.js library depends on it.</sub>
 
-2. Add the chess markup to your default.html file.
+2. Add the chess markup to your **default.html** in your **/public/** file.
 
     ````html 
     <!doctype html>
@@ -129,13 +131,16 @@ We will create a basic Node.js web app that serves up some HTML content using th
     </html>
     ````
      
-3. Create a new file named default.js and include the following source code.
+3. Create a new file named **default.js** in your **/public/** folder and paste in the following source code.
 
     ````javascript
     var board;
     var game;
 
-    window.onload = function () {initGame()};
+    window.onload = function () {
+        initGame();
+    };
+    
     var initGame = function() {
        var cfg = {
            draggable: true,
@@ -145,14 +150,14 @@ We will create a basic Node.js web app that serves up some HTML content using th
        
        board = new ChessBoard('gameBoard', cfg);
        game = new Chess();
-    }
+    };
 
     var handleMove = function(source, target ) {
         var move = game.move({from: source, to: target});
-    }
+    };
     ```` 
     
-4. Create a new file named **'default.css'** in the **/public** folder. Copy the below styles to center the board on the page and give it a width.
+4. Create a new file named **default.css** in the **/public** folder. Copy the below styles to center the board on the page and give it a width.
    
     ````css
     body {
@@ -187,13 +192,13 @@ Respond to a simple Socket.io message
     > npm install socket.io --save
   ````
   
-2. Add an additional reference in your **default.html** to include the Socket.io client-side library with the other script references..
+2. Add an additional reference in your **public/default.html** to include the Socket.io client-side library with the other script references.
 
     ````html 
     <script src="lib/socket.io-1.2.0.js"></script>
     ````
    
-3. Update default.js to send a message to the server when someone clicks on the page.
+3. Update **/public/default.js** to send a message to the server when someone clicks on the page.
   
   ````javascript
    // setup my socket client
@@ -204,7 +209,7 @@ Respond to a simple Socket.io message
     }
   ```` 
   
-4. Now update index.js to respond to that message by outputting to the log.
+4. Now update **/index.js** to respond to that message by outputting to the log.
 
     ````javascript
     // setup my socket server
@@ -224,7 +229,7 @@ Now when you run it, observe in the console that your message made it across whe
 ## Connect our game to Socket.io
 In our basic Socket.io server above, we just sent a message to the client every time someone clicked the button in their browser. For the chess game, all we need to do is send the chess move data to the Socket.io server every time there’s a move and send it to the other player. We’re going to use the same socket.emit() function to send a message, and the socket.on() handlers to respond to them.
 
-1. Update your **default.js** client to send a move with socket.emit when they make a move on the chess board.
+1. Update your **/public/default.js** client to send a move with socket.emit when they make a move on the chess board.
 
     ````javascript
     // called when a player makes a move on the board UI
@@ -234,7 +239,7 @@ In our basic Socket.io server above, we just sent a message to the client every 
     }
     ```` 
 
-2. On the server in **index.js** replace our simple onmessage handler with a handler for chess move.
+2. On the server in **/index.js** replace our simple onmessage handler with a handler for chess move.
 
     ````javascript
     io.on('connection', function(socket) {
@@ -250,7 +255,7 @@ In our basic Socket.io server above, we just sent a message to the client every 
 ## Handle moves you get from the server
 Now that the server is broadcasting the move to the opponent all we need to do is handle that on the client to actually display the move. We just do that with another socket.on() calback, this time on the client. I think it’s super cool that Socket.io has the same programming model whether you’re on the client or server.
 
-1. Update your **default.js** client to handle a move with a socket.on handler.
+1. Update your **/public/default.js** client to handle a move with a socket.on handler.
     
     ````javascript
     // called when the server calls socket.broadcast('move')
