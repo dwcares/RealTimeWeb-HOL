@@ -1,5 +1,6 @@
 # Hands on: Real-time Chess
 ### with WebSockets and Socket.io
+
 [![Watch intro video from David Washington](Images/0.png)](https://channel9.msdn.com/Shows/Lets-dev-this/LDT1605)
 
 In this hands on lab, we'll make a multiplayer chess game that where your moves are shown on your opponent's screen in real-time. Instantly. Checkmate.
