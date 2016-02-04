@@ -247,12 +247,12 @@ Respond to a simple Socket.io message
     var io = require('socket.io')(http);
      
     io.on('connection', function(socket) {
-        console.log('New connection');
-     
+        console.log('new connection');
+    
         socket.on('message', function(msg) {
-            console.log('Got message from client: ' + msg);
-        }
-    }
+            console.log('Got message from client: ' + msg);     
+        });
+    });
     ```` 
 
 Now when you run it, observe in the console that your message made it across when you click on the page! 
