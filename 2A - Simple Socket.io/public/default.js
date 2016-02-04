@@ -20,4 +20,6 @@ var initGame = function() {
 
 var handleMove = function(source, target ) {
     var move = game.move({from: source, to: target});
+    if (move === null)  return 'snapback';
+
 };

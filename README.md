@@ -181,6 +181,8 @@ We will create a basic Node.js web app that serves up some HTML content using th
 
     var handleMove = function(source, target ) {
         var move = game.move({from: source, to: target});
+        
+        if (move === null)  return 'snapback';
     };
     ```` 
     
@@ -270,7 +272,10 @@ In our basic Socket.io server above, we just sent a message to the client every 
     // called when a player makes a move on the board UI
     var handleMove = function(source, target) {
         var move = game.move({from: source, to: target});
-        socket.emit('move', move);
+        
+        if (move === null)  return 'snapback';
+        else socket.emit('move', move);
+        
     }
     ```` 
 

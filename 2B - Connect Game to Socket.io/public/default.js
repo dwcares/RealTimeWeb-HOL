@@ -16,5 +16,7 @@ var initGame = function() {
 
 var handleMove = function(source, target ) {
     var move = game.move({from: source, to: target});
-    socket.emit('move', move);
+    
+    if (move === null)  return 'snapback';
+    else socket.emit('move', move);
 };
