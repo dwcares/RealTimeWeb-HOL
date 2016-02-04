@@ -349,8 +349,19 @@ Fork a project from GitHub
 
     ![Continuous deploy](Images/14.png)
     
+## Enable WebSockets on your Azure Server
+WebSockets are not enabled by default on Azure WebSites, but you can easily enable them.
+
+1. Click the **Application Settings** button on your website.
+
+2. Scroll down to the **WebSockets** switch and enable it.
+
+    ![WebSockets on](Images/15.png)
+
+3. Click the Save button on the top.
+    
 # Complete
-Congratulations! You've sucessfully built a real-time multiplayer chess game using Node.js, Socket.io hosted on Azure. 
+Go ahead and navigate to the url of your webpage in any browser! Congratulations! You've sucessfully built a real-time multiplayer chess game using Node.js, Socket.io hosted on Azure. 
 
 ## Quick recap
 1. We built a simple JavaScript chess game with Chess.js and Chessboard.js
