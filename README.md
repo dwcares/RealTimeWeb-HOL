@@ -60,28 +60,34 @@ We will create a basic Node.js web app that serves up some HTML content using th
   > npm init
  ````
  
-4. This will walk through a tutorial, keep all the defaults by repeatedly hitting enter.
+4. This will walk through a tutorial, keep the defaults except name your file **app.js**
 
    ![npm init](Images/2.png)
+   
+   <sub>Note: Your file needs to be named **app.js** or **server.js** to run on Azure.</sub>
 
 5. List the folders contents and open the package file
 
-     ````
-      > dir
-      ````
-6. Open the current folder in Visual Studio Code by typing **code .**
+   ````
+   > dir
+   ````
+6. Open the current folder in Visual Studio Code by typing 
+
+   ````
+   > code .
+   ````
  
-7. Observe your project metadata displayed in Visual Studio Code by clicking on the **project.json** file.
+7. Observe your project metadata displayed in Visual Studio Code by clicking on the **package.json** file.
 
     ![package.json in VSCode](Images/3.png)
 
 ## Create a simple web server
 
-1. Click on the new file button and create a new file named **index.js**
+1. Click on the new file button and create a new file named **app.js**
 
     ![New file button](Images/4.png)
 
-2. In your **index.js** file paste in the following code. This is the code for your web server.
+2. In your **app.js** file paste in the following code. This is the code for your web server.
 
     ````javascript
     var express = require('express');
@@ -242,7 +248,7 @@ Respond to a simple Socket.io message
     }
   ```` 
   
-4. Now update **/index.js** to respond to that message by outputting to the log.
+4. Now update **/app.js** to respond to that message by outputting to the log.
 
     ````javascript
     // setup my socket server
@@ -279,7 +285,7 @@ In our basic Socket.io server above, we just sent a message to the client every 
     }
     ```` 
 
-2. On the server in **/index.js** replace our simple onmessage handler with a handler for chess move.
+2. On the server in **/app.js** replace our simple onmessage handler with a handler for chess move.
 
     ````javascript
     io.on('connection', function(socket) {
