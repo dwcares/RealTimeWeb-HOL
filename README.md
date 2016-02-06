@@ -227,11 +227,12 @@ Respond to a simple Socket.io message
     > npm install socket.io --save
   ````
   
-2. Add an additional reference in your **public/default.html** to include the Socket.io client-side library with the other script references.
+2. Add an additional reference in your **public/default.html** to include the Socket.io client-side library above your other script references.
 
     ````html 
     <script src="lib/socket.io-1.2.0.js"></script>
     ````
+   <sub>Note: Libraries that your default.js code depend on, need to be declared before default.js if your loading them at the end of the body like this sample does.</sub>
    
 3. Update **/public/default.js** to send a message to the server when someone clicks on the page.
   
@@ -241,7 +242,7 @@ Respond to a simple Socket.io message
    
     window.onclick = function(e) {
         socket.emit('message', 'hello world!');
-    }
+    };
   ```` 
   
 4. Now update **/app.js** to respond to that message by outputting to the log.
@@ -277,7 +278,7 @@ In our basic Socket.io server above, we just sent a message to the client every 
         if (move === null)  return 'snapback';
         else socket.emit('move', move);
         
-    }
+    };
     ```` 
 
 2. On the server in **/app.js** replace our simple onmessage handler with a handler for chess move.
@@ -322,6 +323,7 @@ Fork a project from GitHub
 1.	Go to http://github.com/dwcares/realtimeweb-hol and click the fork repository button. 
 
     ![Fork it](Images/12.png)
+    
     <sub>Note: You need to be logged in with a GitHub account to complete this step.</sub>
  
 2.	Forking the repository, makes a copy for you to play with. It essentially puts it in your sandbox to play with. We’re going to deploy your copy of the repository directly to Azure next.
