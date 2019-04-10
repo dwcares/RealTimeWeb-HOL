@@ -230,7 +230,7 @@ Respond to a simple Socket.io message
 2. Add an additional reference in your **public/default.html** to include the Socket.io client-side library above your other script references.
 
     ````html 
-    <script src="lib/socket.io-1.2.0.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     ````
    <sub>Note: Libraries that your default.js code depend on, need to be declared before default.js if your loading them at the end of the body like this sample does.</sub>
    
